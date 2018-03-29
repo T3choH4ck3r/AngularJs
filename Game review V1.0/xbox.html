@@ -1,0 +1,26 @@
+<div class="container-fluid" ng-controller="mainCtrl">
+	<div class="row">
+		<div class="col-md-3">
+			<h1>Game Type</h1>			   			
+			<div ng-repeat="GameType in gameType">
+		        <label ng-bind="GameType"></label>
+		        <input type="checkbox" ng-model="Filter[GameType]" />
+	     	</div>
+	     	<h1>Players</h1>			   			
+			<div ng-repeat="GamePlayers in gamePlayers">
+		        <label ng-bind="GamePlayers"></label>
+		        <input type="checkbox" ng-model="Filter[GamePlayers]" />
+		    </div>
+		</div>
+		<div class="col-md-9">
+		<div class="col-md-4" ng-repeat="item in Games |filter: {Device: 'XBOX'}" ng-show="Filter[item.Type]&&Filter[item.numberOfPlayers]">
+		<ul style="list-style: none;border:  1px solid;">
+			<li>Name: {{item.Name}}</li>
+			<li>Device: {{item.Device}}</li>
+			<li>Type: {{item.Type}}</li>
+			<li>Number of Players: {{item.numberOfPlayers}}</li>
+		</ul>					
+		</div>
+		</div>		
+	</div>
+</div>

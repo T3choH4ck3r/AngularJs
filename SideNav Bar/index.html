@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Side Nav Bar</title>
+</head>
+<body  ng-app="myApp">
+<div ng-controller="myCtrl">
+
+  <p>Select a Studnet:</p>
+
+  <select ng-model="selectedName" ng-options="y.name for (x, y) in studentData"></select>
+  <h1>You selected: {{selectedName.department}}</h1>
+
+  <select ng-model="selectedSubject" ng-options="y for (x,y) in selectedName.subjects"></select>
+  <select ng-model="subjectDescription" ng-options="y for (x,y) in selectedName.description"></select>
+  <h2> Sub: {{selectedSubject}}</h2>
+  <h2 ng-bind="subjectDescription"></h2>
+  <h2>Subject1:{{selectedName.EDC.description}} </h2>
+
+</div>
+
+<script type="text/javascript" src="js/angular-1.6.7.js"></script>
+<script type="text/javascript" src="js/angular-route-1.6.7.min.js"></script>
+<script type="text/javascript" src="js/angular-material-1.6.7.js"></script>
+<script type="text/javascript" src="js/angular-animate-1.6.7.min.js"></script>
+<script type="text/javascript" src="js/angular-aria-1.6.7.min.js"></script>
+<script type="text/javascript" src="js/angular-messages-1.6.7.min.js"></script>
+<script type="text/javascript" src="js/svg-assets-cache.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

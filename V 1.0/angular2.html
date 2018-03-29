@@ -1,0 +1,103 @@
+<html lang = "en">
+   <head>
+   	<style type="text/css">
+   		md-backdrop.md-opaque.md-default-theme, md-backdrop.md-opaque{
+   			background: #FFFF !important;
+   		}
+   	</style>
+
+      <link rel = "stylesheet" href = "./angular-material-1.0.0.min.css">
+      <link rel = "stylesheet" href = "./bootstrap.min.css">
+      <script src="./jQuery-1.9.1.js"></script>
+      <script src="./bootstrap.min.js"></script>
+      <script src = "./angular-1.4.8.min.js"></script>
+      <script src = "./angular-animate-1.4.8.min.js"></script>
+      <script src = "./angular-aria-1.4.8.min.js"></script>
+      <script src = "./angular-messages-1.4.8.min.js"></script>
+      <script src = "./angular-material-1.0.0.min.js"></script>
+      <!--<link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">-->        
+   </head>
+   
+   <body ng-app = "firstApplication"> 
+<div class="row">
+<div class="col-md-2">
+  <div id = "sideNavContainer"  ng-controller = "sideNavController as ctrl" layout = "row" ng-cloak>      	          
+     <md-sidenav md-component-id = "left" class = "md-sidenav-left" ng-dbclick="close()" style="background:#a1bd5d;width: 150px;color: black;height: 100%">
+     	<div style="margin-left: 30px">
+     	<select ng-model="selectedplatForm" ng-options="y.brand for (x, y) in platForm"></select>
+			<h5>You PlatForm: {{selectedplatForm.brand}}</h5>
+			<h5>Experiance: {{selectedplatForm.exp}}</h5>
+			<!--<h5>Color: {{selectedplatForm.color}}</h5>-->
+		</div>
+        <ol style="list-style:none"  ng-repeat="listItems in listItems">
+        	<li>{{listItems.Dept}}</li>
+        </ol>
+     </md-sidenav>
+	 <div>
+		<div ng-click="openLeftMenu()" style="border-left: 20px solid #a1bd5d;height: 100%;"></div>
+	 </div>
+	</div>
+</div>
+     <!--<md-content>           
+        <md-container ng-click = "openLeftMenu()">Microsoft Dynamics</md-contaier>
+
+       <div>
+     </md-content>-->        
+	  <div class="col-md-10">
+	     <h1>Profiles</h1>	     
+	  </div>
+	  <div class="row">
+	  	<div class="col-md-3">
+	  	<img src=".\images\image2.png" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  	<div class="col-md-3">
+	  	<img src=".\images\image1.jpg" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  	<div class="col-md-3">
+	  	<img src=".\images\image3.png" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	 
+	  	<div class="col-md-3">
+	  	<img src=".\images\image2.png" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  	<div class="col-md-3">
+	  	<img src=".\images\image1.jpg" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  	<div class="col-md-3">
+	  	<img src=".\images\image3.png" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  
+	  	<div class="col-md-3">
+	  	<img src=".\images\image2.png" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  	<div class="col-md-3">
+	  	<img src=".\images\image1.jpg" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  	<div class="col-md-3">
+	  	<img src=".\images\image3.png" class="thumbnail" style="width:200px;border-radius: 100px"/>
+	  	</div>
+	  </div>
+</div>
+  </body>
+   <script language = "javascript">
+          angular
+            .module('firstApplication', ['ngMaterial'])
+            .controller('sideNavController', fnservice);
+
+         function fnservice ($scope, $mdSidenav) {
+            $scope.openLeftMenu = function() {
+               $mdSidenav('left').toggle();               
+               $scope.listItems=[{id:0,Dept:'Dynamics'},{id:1,Dept:'Nav'},{id:2,Dept:'GP'},{id:3,Dept:'CRM'}];
+               $scope.platForm = {
+        pf01 : {brand : "Dynamics", exp: 2, color : "red"},
+        pf02 : {brand : "Nav", exp : 3, color : "white"},
+        pf03 : {brand : "GP", exp : 3, color : "black"},
+        pf04 : {brand : "CRM", exp : 3}
+    }
+            };
+            $scope.close=function(){           	
+            $mdSidenav('left').toggle();
+            }
+            }
+      </script>   
+</html>

@@ -1,0 +1,74 @@
+<div class="container" ng-controller="myController">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">Employee sign up Form</h1>
+	               		<hr />
+	               	</div>
+	            </div> 
+				<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="#" name="myForm">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" ng-model="employeeName" id="name"  placeholder="Enter your Name" required/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error': myForm.email.$invalid && myForm.email.$dirty, 'has-success': myForm.email.$valid }">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="email" class="form-control" ng-model="employeeEmail" ng-disabled="myForm.name.$invalid" name="email" id="email"  placeholder="Enter your Email" required/>
+									<p class="help-block" ng-if="myForm.email.$invalid && myForm.email.$dirty">Please Enter a valid email address</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" ng-model="employeeUserName" ng-disabled="myForm.email.$invalid" name="username" id="username"  placeholder="Enter your Username" required/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error': myForm.pswd.$invalid && myForm.pswd.$dirty, 'has-success': myForm.pswd.$valid}">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" ng-model="pswd" ng-disabled="myForm.username.$invalid" name="pswd" id="password"  ng-minLength="8" placeholder="Enter your Password" required/>
+									<p class="help-block" ng-if="myForm.pswd.$invalid && myForm.pswd.$dirty">Please Enter at least 8 characters</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error': myForm.cnfrmPswd.$invalid && myForm.cnfrmPswd.$dirty, 'has-success': myForm.cnfrmPswd.$valid}">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" ng-model="cnfrmPswd" ng-disabled="myForm.pswd.$invalid" name="cnfrmPswd" id="confirm" ng-minLength="8" placeholder="Confirm your Password" ng-pattern="pswd" required/>
+									<p class="help-block" ng-if ="((myForm.cnfrmPswd.$invalid && myForm.cnfrmPswd.$dirty) && (myForm.pswd.$error.pattern))">Password have to match!</p>
+									<!-- <p ng-if="">Password have to match!</p> -->
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<a href="#!EmployeeDetails">
+								<button type="button" class="btn btn-primary btn-lg btn-block login-button" ng-disabled="myForm.cnfrmPswd.$invalid">Register</button>
+							</a>
+						</div>
+					</form>
+				</div>				
+			</div>
+		</div>

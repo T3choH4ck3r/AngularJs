@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        md-backdrop.md-opaque.md-default-theme,md-backdrop.md-opaque {
+            background: #FFFF !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="./angular-material-1.0.0.min.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="./jQuery-1.9.1.js"></script>
+    <script src="./bootstrap.min.js"></script>
+    <script src="./angular-1.4.8.min.js"></script>
+    <script src="./angular-animate-1.4.8.min.js"></script>
+    <script src="./angular-aria-1.4.8.min.js"></script>
+    <script src="./angular-messages-1.4.8.min.js"></script>
+    <script src="./angular-material-1.0.0.min.js"></script>
+    <!--<link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">-->
+</head>
+
+<body ng-app="firstApplication">
+    <div class="row" ng-controller="sideNavController as ctrl">
+        <div class="col-md-2">
+            <div id="sideNavContainer" layout="row" ng-cloak>
+            <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+                <md-toolbar class="md-theme-light">
+                    <h1 class="md-toolbar-tools">Sidenav Right</h1>
+                </md-toolbar>
+                <md-content ng-controller="RightCtrl" layout-padding="">
+                    <form>
+                        <md-input-container>
+                            <label for="testInput">Test input</label>
+                            <form class="form-inline" name="form">
+                            <div class="form-group"><br/>
+                                <label for="services" class="control-label">Services Available</label>
+                                <select name='services' id="services" class="form-control" ng-model="services" ng-options="services as services.ServiceType for services in Services" required>
+                        <option value="" disabled>Select</option>
+                    </select>
+                            </div>
+                            <div class="form-group"><br/>
+                                <label for="platforms" class="control-label">PlatForms</label>
+                                <select name='platforms' required id="platforms" class="form-control" ng-disabled="Platforms.length == 0" ng-model="platforms" ng-options="platforms as platforms.PlatformName for platforms in Platforms">
+                        <option value="" disabled>Select</option>
+                    </select>
+                            </div>
+                            <div class="form-group"><br/>
+                                <label for="resources" class="control-label">Experiance's</label>
+                                <select name='resources' required id="resources" class="form-control" ng-disabled="Resources.length == 0" ng-model="resources" ng-options="resources as resources.YearOfExperiance for resources in Resources">
+                        <option value="" disabled>Select</option>
+                    </select>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div>
+                                <input class="btn" type="button" ng-disabled='!resources.Id' value="Show Profile" ng-click="ShowHide()" />
+                            </div>
+                        </form>
+                            <input type="text" id="testInput" ng-model="data" md-autofocus="">
+                        </md-input-container>
+                    </form>
+                    <md-button ng-click="close()" class="md-primary">
+                    Close Sidenav Right
+                    </md-button>
+                </md-content>
+
+            </md-sidenav>
+                <!-- <md-sidenav md-component-id="left" class="md-sidenav-left" ng-dbclick="close()" style="background:#a1bd5d;width: 150px;color: black;height: 100%">
+                    <div style="margin-left: 20px;"> -->
+ <!--                        <form class="form-inline" name="form">
+                            <div class="form-group"><br/>
+                                <label for="services" class="control-label">Services Available</label>
+                                <select name='services' id="services" class="form-control" ng-model="services" ng-options="services as services.ServiceType for services in Services" required>
+                        <option value="" disabled>Select</option>
+                    </select>
+                            </div>
+                            <div class="form-group"><br/>
+                                <label for="platforms" class="control-label">PlatForms</label>
+                                <select name='platforms' required id="platforms" class="form-control" ng-disabled="Platforms.length == 0" ng-model="platforms" ng-options="platforms as platforms.PlatformName for platforms in Platforms">
+                        <option value="" disabled>Select</option>
+                    </select>
+                            </div>
+                            <div class="form-group"><br/>
+                                <label for="resources" class="control-label">Experiance's</label>
+                                <select name='resources' required id="resources" class="form-control" ng-disabled="Resources.length == 0" ng-model="resources" ng-options="resources as resources.YearOfExperiance for resources in Resources">
+                        <option value="" disabled>Select</option>
+                    </select>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div>
+                                <input class="btn" type="button" ng-disabled='!resources.Id' value="Show Profile" ng-click="ShowHide()" />
+                            </div>
+                        </form> -->
+
+                        <!--  <p>Selected services: {{services.Id}} - {{services.ServiceType}}</p>
+              <p>Selected platforms: {{platforms.Id}} - {{platforms.PlatformName}}</p>
+              <p>Selected Year Of Experiance: {{resources.Id}} - {{resources.YearOfExperiance}}</p>
+              <p>Selected Name : {{resources.Name}}</p> -->
+                    <!-- </div>
+
+                </md-sidenav>
+
+                <div>
+                    <div ng-click="openLeftMenu()" style="border-left: 20px solid #a1bd5d;height: 100%;"></div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <h1>Profiles</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group" ng-show="IsVisible">
+                    <img ng-src="{{resources.src}}" class="thumbnail" style="width:200px;border-radius: 100px;border-color: greenyellow 2" />
+                    <div class="profileDetails" style="margin-left: 50px;">
+                        <p ng-model="resources">Name : {{resources.Name}}</p>
+                        <p ng-model="platforms">PlatForm: {{platforms.PlatformName}}</p>
+                        <p ng-model="Services">Service : {{services.ServiceType}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script language="javascript" src="./app.model.js"></script>
+</html>

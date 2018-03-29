@@ -1,0 +1,18 @@
+[
+    {
+      "Title": "Arcade",
+      "icon": "fas fa-bicycle"      
+    },
+    {
+      "Title": "Action",
+      "icon": "far fa-edit"     
+    },
+    {
+      "Title": "Adventures",
+      "icon": "fas fa-gamepad"     
+    },
+    {
+      "Title": "strategy",
+      "icon": "far fa-lightbulb"    
+    }
+  ]

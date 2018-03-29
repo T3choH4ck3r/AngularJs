@@ -1,0 +1,15 @@
+/*.home-page {
+   background-image: url('/images/home-page.jpg');
+}*/
+button#singlebutton {
+    margin: 275px;
+}
+/*.col-md-12.text-center.home-page{
+	margin-top: -20px;
+}*/
+.table{
+	text-align: left;
+}
+#directiveElement{
+	padding: 10px;
+}

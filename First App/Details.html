@@ -1,0 +1,22 @@
+
+test
+
+<!DOCTYPE html>
+<html>
+<body>
+<div class="row">
+            <div class="col-md-3">
+                <div class="form-group" ng-show="IsVisible">
+                    <img ng-src="{{resources.src}}" class="thumbnail" style="width:200px;border-radius: 100px;border-color: greenyellow 2" />
+                    <div class="profileDetails" style="margin-left: 50px;">
+                        <p ng-model="resources">Name : {{resources.Name}}</p>
+                        <p ng-model="platforms">PlatForm: {{platforms.PlatformName}}</p>
+                        <p ng-model="Services">Service : {{services.ServiceType}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

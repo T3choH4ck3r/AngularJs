@@ -1,0 +1,10 @@
+<h3>Game Type</h3>			   			
+	<div ng-repeat="GameType in gameType">
+	    <label ng-bind="GameType"></label>
+	    <input type="checkbox" ng-model="Filter[GameType]" ng-init="Filter[GameType]=true"/>
+	</div>
+<h3>Players</h3>			   			
+	<div ng-repeat="GamePlayers in gamePlayers">
+	    <label ng-bind="GamePlayers"></label>
+	    <input type="checkbox" ng-model="Filter[GamePlayers]" ng-init="Filter[GamePlayers]=true"/>
+	</div>

@@ -1,0 +1,27 @@
+<!--Direcctive Section-->
+<div ng-controller="EventType">
+<my-element></my-element>
+</div>
+<div ng-controller="mainCtrl">
+	<div class="col-md-12 text-center home-page">
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Game Name</th>
+			<th>Type</th>
+			<th>Device</th>
+			<th>Crowd</th>
+		</tr>
+		</thead>
+		<tbody ng-repeat="item in Games">
+            <tr>
+                <td>{{item.Name}}</td>
+                <td>{{item.Type}}</td>
+                <td>{{item.Device}}</td>
+                <td>{{item.Crowd}}</td>
+            </tr>
+        </tbody>
+	</table> 
+    	<!-- <button id="singlebutton" name="singlebutton" class="btn btn-primary">Lets do this !</button>  -->
+	</div>
+</div>

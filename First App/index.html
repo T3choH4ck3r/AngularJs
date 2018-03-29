@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Profiles</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+</head>
+<body ng-app="app" ng-controller="mainController">
+	<div class="form-group"><br/>
+	    <label for="services" class="control-label">Services Available</label>
+	    <select name='services' id="services" class="form-control" ng-model="services" ng-options="services as services.ServiceType for services in Services" required>
+		<option value="" disabled>Select</option>
+		</select>
+	</div>
+	<div class="form-group"><br/>
+	    <label for="platforms" class="control-label">PlatForms</label>
+	    <select name='platforms' required id="platforms" class="form-control" ng-disabled="Platforms.length == 0" ng-model="platforms" ng-options="platforms as platforms.PlatformName for platforms in Platforms">
+		<option value="" disabled>Select</option>
+		</select>
+	</div>
+	<div class="form-group"><br/>
+	    <label for="resources" class="control-label">Experiance's</label>
+	    <select name='resources' required id="resources" class="form-control" ng-disabled="Resources.length == 0" ng-model="resources" ng-options="resources as resources.YearOfExperiance for resources in Resources">
+		<option value="" disabled>Select</option>
+		</select>
+	</div>
+	<br/>
+	<br/>
+	<div>
+	   <a href="#Details/{{resources.Id}}"><input class="btn" type="button" ng-disabled='!resources.Id' value="Show Profile"></a>
+	</div>
+	<div ng-view>
+		
+
+
+	</div>
+</body>
+<script type="text/javascript" src="jQuery-1.9.1.js"></script>
+<script type="text/javascript" src="angular-1.4.8.min.js"></script>
+<script type="text/javascript" src="angular-route-1.4.8.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</html>
